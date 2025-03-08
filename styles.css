@@ -1,0 +1,397 @@
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+    color: #333;
+    background-color: #f4f4f4;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+h3, h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* Form Styles */
+.setup-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.pc-section, .monster-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #2ecc71;
+}
+
+.btn-primary:hover {
+    background-color: #27ae60;
+}
+
+.btn-small {
+    padding: 3px 8px;
+    font-size: 0.8rem;
+}
+
+/* Combat Container Styles */
+.combat-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.initiative-column {
+    flex: 1;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+}
+
+.combat-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.initiative-list {
+    margin-bottom: 10px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.initiative-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.initiative-item .participant-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.initiative-item.active {
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+}
+
+.initiative-item.monster {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.initiative-item.monster.active {
+    background-color: #c0392b;
+}
+
+.initiative-item.monster.defeated {
+    background-color: #7f8c8d;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.monster-hp {
+    width: 100%;
+    margin-top: 3px;
+}
+
+.hp-bar {
+    height: 6px;
+    background-color: #ecf0f1;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.hp-fill {
+    height: 100%;
+    background-color: #2ecc71;
+    transition: width 0.3s ease;
+}
+
+.hp-text {
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+}
+
+.hp-controls {
+    display: flex;
+    gap: 3px;
+}
+
+.damage-btn {
+    background-color: #e74c3c;
+}
+
+.damage-btn:hover {
+    background-color: #c0392b;
+}
+
+.heal-btn {
+    background-color: #2ecc71;
+}
+
+.heal-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Combat Controls and Turn Info */
+.combat-controls {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+}
+
+.turn-info {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 50px;
+}
+
+.active-stat-block {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Monster Stat Block Styles - Based on D&D Beyond */
+.monster-stat-block {
+    width: 100%;
+    font-size: 0.9rem;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.monster-stat-block.hidden {
+    display: none;
+}
+
+.stat-block-name-bar {
+    background-color: #7a200d;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.stat-block-type-bar {
+    background-color: #e0e5c1;
+    color: #7a200d;
+    padding: 3px 10px;
+    font-style: italic;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.stat-block-content {
+    padding: 10px;
+    background-color: #fdf1dc;
+}
+
+.stat-block-section {
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.stat-block-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.stat-block-property {
+    margin-bottom: 5px;
+}
+
+.stat-block-property strong {
+    font-weight: bold;
+}
+
+.stat-block-abilities {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.ability {
+    flex: 1;
+    padding: 3px;
+}
+
+.ability-name {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.ability-score {
+    font-size: 0.8rem;
+}
+
+.stat-block-actions-header {
+    color: #7a200d;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #7a200d;
+    margin: 10px 0 5px 0;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.action-btn {
+    background-color: #7a200d;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+}
+
+.action-btn:hover {
+    background-color: #5a1007;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .setup-section {
+        flex-direction: column;
+    }
+    
+    .pc-section, .monster-section {
+        width: 100%;
+    }
+    
+    .combat-container {
+        flex-direction: column;
+    }
+    
+    .initiative-column {
+        max-width: 100%;
+    }
+    
+    .stat-block-abilities {
+        flex-wrap: wrap;
+    }
+    
+    .ability {
+        min-width: 80px;
+        margin-bottom: 5px;
+    }
+} 

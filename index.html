@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orcistrator Initiative Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Orcistrator Initiative Tracker</h1>
+        </header>
+        
+        <main>
+            <div class="setup-section">
+                <div class="pc-section">
+                    <h2>Add Player Characters</h2>
+                    <form id="pc-form">
+                        <div class="form-group">
+                            <label for="pc-name">Name:</label>
+                            <input type="text" id="pc-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pc-initiative">Initiative:</label>
+                            <input type="number" id="pc-initiative" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pc-ac">Armor Class:</label>
+                            <input type="number" id="pc-ac" required>
+                        </div>
+                        <button type="submit" class="btn">Add PC</button>
+                    </form>
+                </div>
+                
+                <div class="monster-section">
+                    <h2>Add Monsters</h2>
+                    <form id="monster-form">
+                        <div class="form-group">
+                            <label for="monster-search">Search Monster:</label>
+                            <input type="text" id="monster-search" list="monster-list" required>
+                            <datalist id="monster-list"></datalist>
+                        </div>
+                        <div class="form-group">
+                            <label for="monster-count">Count:</label>
+                            <input type="number" id="monster-count" min="1" value="1" required>
+                        </div>
+                        <button type="submit" class="btn">Add Monsters</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="combat-container">
+                <div class="initiative-column">
+                    <h2>Initiative Order</h2>
+                    <div id="initiative-list" class="initiative-list"></div>
+                </div>
+                
+                <div class="combat-column">
+                    <div id="combat-controls" class="combat-controls">
+                        <button id="start-combat" class="btn btn-primary">Start Combat</button>
+                        <button id="next-turn" class="btn btn-primary" disabled>Next Turn</button>
+                    </div>
+                    
+                    <div id="turn-info" class="turn-info"></div>
+                    
+                    <div id="active-stat-block" class="active-stat-block"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Orcistrator Initiative Tracker - D&D 5e Combat Management Tool</p>
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,24 @@
+{
+  "name": "orcistrator-initiative-tracker",
+  "version": "1.0.0",
+  "description": "A D&D 5e combat initiative tracker with automated monster turns",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "dnd",
+    "d&d",
+    "initiative",
+    "tracker",
+    "combat",
+    "dungeons and dragons"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+} 
