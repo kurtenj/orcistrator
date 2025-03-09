@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orcistrator Initiative Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2c3e50',
+                        secondary: '#ecf0f1',
+                        monster: {
+                            DEFAULT: '#e74c3c',
+                            hover: '#c0392b',
+                            defeated: '#7f8c8d',
+                        },
+                        player: {
+                            DEFAULT: '#3498db',
+                            hover: '#2980b9',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+  <script type="module" crossorigin src="/assets/index-CTOYfvZn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DyHTSC0v.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <header class="bg-primary text-white rounded-lg p-4 mb-6 text-center">
+            <h1 class="text-2xl font-bold">Orcistrator Initiative Tracker</h1>
+        </header>
+        
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="rounded-lg border bg-white shadow-sm p-6">
+                    <h2 class="text-xl font-semibold mb-4">Add Player Characters</h2>
+                    <form id="pc-form" class="space-y-4">
+                        <div class="space-y-2">
+                            <label for="pc-name" class="text-sm font-medium">Name:</label>
+                            <input type="text" id="pc-name" required class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="pc-initiative" class="text-sm font-medium">Initiative:</label>
+                            <input type="number" id="pc-initiative" required class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="pc-ac" class="text-sm font-medium">Armor Class:</label>
+                            <input type="number" id="pc-ac" required class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                        <div class="flex gap-2">
+                            <button type="submit" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">Add PC</button>
+                            <div class="relative">
+                                <button type="button" id="random-pc-button" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-green-600 text-white hover:bg-green-700">Random PC</button>
+                                <div id="random-pc-dropdown" class="absolute right-0 mt-1 w-40 bg-white border border-gray-200 rounded-md shadow-lg hidden z-10">
+                                    <div class="py-1">
+                                        <button type="button" class="random-pc-count-btn w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-count="1">Add 1 PC</button>
+                                        <button type="button" class="random-pc-count-btn w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-count="2">Add 2 PCs</button>
+                                        <button type="button" class="random-pc-count-btn w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-count="3">Add 3 PCs</button>
+                                        <button type="button" class="random-pc-count-btn w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-count="4">Add 4 PCs</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="rounded-lg border bg-white shadow-sm p-6">
+                    <h2 class="text-xl font-semibold mb-4">Add Monsters</h2>
+                    <form id="monster-form" class="space-y-4">
+                        <div class="space-y-2">
+                            <label for="monster-search" class="text-sm font-medium">Search Monster:</label>
+                            <input type="text" id="monster-search" list="monster-list" required class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                            <datalist id="monster-list"></datalist>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="monster-count" class="text-sm font-medium">Count:</label>
+                            <input type="number" id="monster-count" min="1" value="1" required class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                        <button type="submit" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">Add Monsters</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-1">
+                    <div class="rounded-lg border bg-white shadow-sm p-6">
+                        <h2 class="text-xl font-semibold mb-4">Initiative Order</h2>
+                        
+                        <!-- Combat Toolbar -->
+                        <div id="combat-toolbar" class="mb-4 p-3 bg-gray-100 rounded-md border border-gray-200">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <div class="flex gap-2">
+                                    <button id="start-combat" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-8 px-3 py-0 bg-blue-600 text-white hover:bg-blue-700">Start Combat</button>
+                                    <button id="next-turn" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-8 px-3 py-0 bg-blue-600 text-white hover:bg-blue-700 hidden" disabled>Next Turn</button>
+                                </div>
+                                <div id="combat-counters" class="flex gap-2 text-sm hidden">
+                                    <span id="round-counter" class="px-2 py-1 bg-blue-100 text-blue-800 rounded">Round: 0</span>
+                                    <span id="turn-counter" class="px-2 py-1 bg-green-100 text-green-800 rounded">Turn: 0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="initiative-list" class="space-y-2"></div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-2">
+                    <div class="rounded-lg border bg-white shadow-sm p-6">
+                        <div id="turn-info" class="p-4 bg-gray-100 rounded-md mb-4 hidden"></div>
+                        
+                        <div id="active-stat-block" class="mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="mt-8 text-center text-sm text-gray-500">
+            <p>Orcistrator Initiative Tracker - D&D 5e Combat Management Tool</p>
+        </footer>
+    </div>
+    
+</body>
+</html> 

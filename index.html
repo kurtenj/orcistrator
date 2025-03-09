@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orcistrator Initiative Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,7 +32,18 @@
                             <label for="pc-ac">Armor Class:</label>
                             <input type="number" id="pc-ac" required>
                         </div>
-                        <button type="submit" class="btn">Add PC</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add PC</button>
+                            <div class="dropdown">
+                                <button type="button" id="random-pc-button" class="btn">Random PC</button>
+                                <div id="random-pc-dropdown" class="dropdown-menu">
+                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="1">Add 1 PC</button>
+                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="2">Add 2 PCs</button>
+                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="3">Add 3 PCs</button>
+                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="4">Add 4 PCs</button>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 
@@ -45,7 +59,7 @@
                             <label for="monster-count">Count:</label>
                             <input type="number" id="monster-count" min="1" value="1" required>
                         </div>
-                        <button type="submit" class="btn">Add Monsters</button>
+                        <button type="submit" class="btn btn-primary">Add Monsters</button>
                     </form>
                 </div>
             </div>
@@ -53,16 +67,26 @@
             <div class="combat-container">
                 <div class="initiative-column">
                     <h2>Initiative Order</h2>
+                    
+                    <!-- Combat Toolbar -->
+                    <div id="combat-toolbar" class="combat-controls">
+                        <div>
+                            <button id="start-combat" class="btn btn-primary btn-small">Start Combat</button>
+                            <button id="next-turn" class="btn btn-small hidden" disabled>Next Turn</button>
+                        </div>
+                        <div id="combat-counters" class="hidden">
+                            <span id="round-counter">Round: 0</span>
+                            <span id="turn-counter">Turn: 0</span>
+                        </div>
+                    </div>
+                    
                     <div id="initiative-list" class="initiative-list"></div>
                 </div>
                 
                 <div class="combat-column">
-                    <div id="combat-controls" class="combat-controls">
-                        <button id="start-combat" class="btn btn-primary">Start Combat</button>
-                        <button id="next-turn" class="btn btn-primary" disabled>Next Turn</button>
+                    <div class="turn-info">
+                        <div id="turn-info" class="hidden"></div>
                     </div>
-                    
-                    <div id="turn-info" class="turn-info"></div>
                     
                     <div id="active-stat-block" class="active-stat-block"></div>
                 </div>
@@ -74,6 +98,6 @@
         </footer>
     </div>
     
-    <script src="app.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html> 
