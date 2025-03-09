@@ -1,103 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orcistrator Initiative Tracker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Orcistrator Initiative Tracker</h1>
-        </header>
-        
-        <main>
-            <div class="setup-section">
-                <div class="pc-section">
-                    <h2>Add Player Characters</h2>
-                    <form id="pc-form">
-                        <div class="form-group">
-                            <label for="pc-name">Name:</label>
-                            <input type="text" id="pc-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="pc-initiative">Initiative:</label>
-                            <input type="number" id="pc-initiative" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="pc-ac">Armor Class:</label>
-                            <input type="number" id="pc-ac" required>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Add PC</button>
-                            <div class="dropdown">
-                                <button type="button" id="random-pc-button" class="btn">Random PC</button>
-                                <div id="random-pc-dropdown" class="dropdown-menu">
-                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="1">Add 1 PC</button>
-                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="2">Add 2 PCs</button>
-                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="3">Add 3 PCs</button>
-                                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="4">Add 4 PCs</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+      <header>
+        <h1>Orcistrator</h1>
+      </header>
+
+      <main>
+        <div class="setup-section">
+          <div class="pc-section">
+            <h2>Add Players</h2>
+            <form id="pc-form">
+              <div class="input-row">
+                <div class="form-group name-input">
+                  <label for="pc-name">Name:</label>
+                  <input type="text" id="pc-name" required />
                 </div>
-                
-                <div class="monster-section">
-                    <h2>Add Monsters</h2>
-                    <form id="monster-form">
-                        <div class="form-group">
-                            <label for="monster-search">Search Monster:</label>
-                            <input type="text" id="monster-search" list="monster-list" required>
-                            <datalist id="monster-list"></datalist>
-                        </div>
-                        <div class="form-group">
-                            <label for="monster-count">Count:</label>
-                            <input type="number" id="monster-count" min="1" value="1" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Monsters</button>
-                    </form>
+                <div class="form-group initiative-input">
+                  <label for="pc-initiative">Initiative:</label>
+                  <input type="number" id="pc-initiative" required />
                 </div>
+                <div class="form-group ac-input">
+                  <label for="pc-ac">AC:</label>
+                  <input type="number" id="pc-ac" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add PC</button>
+                <div class="dropdown">
+                  <button type="button" id="random-pc-button" class="btn">Random PC</button>
+                  <div id="random-pc-dropdown" class="dropdown-menu">
+                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="1">
+                      Add 1 PC
+                    </button>
+                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="2">
+                      Add 2 PCs
+                    </button>
+                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="3">
+                      Add 3 PCs
+                    </button>
+                    <button type="button" class="dropdown-item random-pc-count-btn" data-count="4">
+                      Add 4 PCs
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="monster-section">
+            <h2>Add Monsters</h2>
+            <form id="monster-form">
+              <div class="input-row">
+                <div class="form-group monster-search-input">
+                  <label for="monster-search">Search Monster:</label>
+                  <input type="text" id="monster-search" list="monster-list" required />
+                  <datalist id="monster-list"></datalist>
+                </div>
+                <div class="form-group monster-count-input">
+                  <label for="monster-count">Count:</label>
+                  <input type="number" id="monster-count" min="1" value="1" required />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Monsters</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="combat-container">
+          <div class="initiative-column">
+            <h2>Initiative Order</h2>
+
+            <!-- Combat Toolbar -->
+            <div id="combat-toolbar" class="combat-controls">
+              <div>
+                <button id="start-combat" class="btn btn-primary btn-small">Start Combat</button>
+                <button id="next-turn" class="btn btn-small hidden" disabled>Next Turn</button>
+              </div>
+              <div id="combat-counters" class="hidden">
+                <span id="round-counter">Round: 0</span>
+                <span id="turn-counter">Turn: 0</span>
+              </div>
             </div>
-            
-            <div class="combat-container">
-                <div class="initiative-column">
-                    <h2>Initiative Order</h2>
-                    
-                    <!-- Combat Toolbar -->
-                    <div id="combat-toolbar" class="combat-controls">
-                        <div>
-                            <button id="start-combat" class="btn btn-primary btn-small">Start Combat</button>
-                            <button id="next-turn" class="btn btn-small hidden" disabled>Next Turn</button>
-                        </div>
-                        <div id="combat-counters" class="hidden">
-                            <span id="round-counter">Round: 0</span>
-                            <span id="turn-counter">Turn: 0</span>
-                        </div>
-                    </div>
-                    
-                    <div id="initiative-list" class="initiative-list"></div>
-                </div>
-                
-                <div class="combat-column">
-                    <div class="turn-info">
-                        <div id="turn-info" class="hidden"></div>
-                    </div>
-                    
-                    <div id="active-stat-block" class="active-stat-block"></div>
-                </div>
+
+            <div id="initiative-list" class="initiative-list"></div>
+          </div>
+
+          <div class="combat-column">
+            <div class="turn-info">
+              <div id="turn-info" class="hidden"></div>
             </div>
-        </main>
-        
-        <footer>
-            <p>Orcistrator Initiative Tracker - D&D 5e Combat Management Tool</p>
-        </footer>
+
+            <div id="active-stat-block" class="active-stat-block"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>Orcistrator Initiative Tracker - D&D 5e Combat Management Tool</p>
+      </footer>
     </div>
-    
+
     <script type="module" src="js/main.js"></script>
-</body>
-</html> 
+  </body>
+</html>

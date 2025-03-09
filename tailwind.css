@@ -10,132 +10,132 @@
   .btn {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2;
   }
-  
+
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
   }
-  
+
   .btn-destructive {
     @apply bg-red-600 text-white hover:bg-red-700;
   }
-  
+
   .btn-outline {
     @apply border border-gray-300 bg-white hover:bg-gray-100;
   }
-  
+
   .btn-ghost {
     @apply hover:bg-gray-100;
   }
-  
+
   .btn-small {
     @apply h-8 px-3 text-xs;
   }
-  
+
   .card {
     @apply rounded-lg border border-gray-200 bg-white shadow-sm;
   }
-  
+
   .card-header {
     @apply flex flex-col space-y-1.5 p-6;
   }
-  
+
   .card-title {
     @apply text-lg font-semibold leading-none tracking-tight;
   }
-  
+
   .card-description {
     @apply text-sm text-gray-500;
   }
-  
+
   .card-content {
     @apply p-6 pt-0;
   }
-  
+
   .card-footer {
     @apply flex items-center p-6 pt-0;
   }
-  
+
   .initiative-item {
     @apply flex items-center justify-between p-3 mb-2 rounded-md bg-gray-100;
   }
-  
+
   .initiative-item.active {
     @apply border-2 border-primary;
   }
-  
+
   .initiative-item.monster {
     @apply bg-monster/20;
   }
-  
+
   .initiative-item.monster.active {
     @apply border-monster;
   }
-  
+
   .initiative-item.monster.defeated {
     @apply bg-monster-defeated/20 opacity-60;
   }
-  
+
   .hp-bar {
     @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
   }
-  
+
   .hp-fill {
     @apply h-full bg-green-500;
   }
-  
+
   .hp-fill.low {
     @apply bg-red-500;
   }
-  
+
   .hp-fill.medium {
     @apply bg-yellow-500;
   }
-  
+
   .stat-block {
     @apply rounded-lg border border-gray-200 bg-white shadow-sm p-0 mb-4 overflow-hidden;
   }
-  
+
   .stat-block-name-bar {
     @apply bg-primary text-white p-3;
   }
-  
+
   .stat-block-type-bar {
     @apply p-2 bg-gray-100 text-gray-700 text-xs italic border-b border-gray-200;
   }
-  
+
   .stat-block-content {
     @apply p-4;
   }
-  
+
   .stat-block-section {
     @apply mb-4;
   }
-  
+
   .stat-block-abilities {
     @apply grid grid-cols-6 gap-2 mb-4;
   }
-  
+
   .ability {
     @apply flex flex-col items-center bg-gray-100 p-2 rounded;
   }
-  
+
   .ability-name {
     @apply text-xs font-bold;
   }
-  
+
   .ability-score {
     @apply text-sm;
   }
-  
+
   .action-buttons {
     @apply flex flex-wrap gap-2 mt-4;
   }
-  
+
   .action-btn {
     @apply btn btn-small btn-outline;
   }
-} 
+}

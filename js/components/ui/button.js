@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority';
+
 import { cn } from '../../utils.js';
 
 /**
@@ -38,7 +39,7 @@ export function createButton({ className, variant = 'default', size = 'default',
 
   const button = document.createElement('button');
   button.className = cn(buttonVariants({ variant, size }), className);
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key === 'children') {
@@ -61,4 +62,4 @@ export function createButton({ className, variant = 'default', size = 'default',
   });
 
   return button;
-} 
+}

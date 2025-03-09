@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./js/**/*.js",
-  ],
+  content: ['./index.html', './js/**/*.js'],
   theme: {
     extend: {
       colors: {
@@ -27,7 +24,7 @@ export default {
       },
       gridTemplateColumns: {
         // Simple 16 column grid
-        '3': 'repeat(3, minmax(0, 1fr))',
+        3: 'repeat(3, minmax(0, 1fr))',
       },
       gridColumn: {
         'span-1': 'span 1 / span 1',
@@ -36,4 +33,4 @@ export default {
     },
   },
   plugins: [],
-} 
+};

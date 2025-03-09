@@ -10,11 +10,11 @@ import { cn } from '../../utils.js';
 export function createCard({ className, children = [], ...props }) {
   const card = document.createElement('div');
   card.className = cn('rounded-lg border bg-card text-card-foreground shadow-sm', className);
-  
+
   children.forEach(child => {
     card.appendChild(child);
   });
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith('data-')) {
@@ -23,7 +23,7 @@ export function createCard({ className, children = [], ...props }) {
       card[key] = value;
     }
   });
-  
+
   return card;
 }
 
@@ -37,11 +37,11 @@ export function createCard({ className, children = [], ...props }) {
 export function createCardHeader({ className, children = [], ...props }) {
   const header = document.createElement('div');
   header.className = cn('flex flex-col space-y-1.5 p-6', className);
-  
+
   children.forEach(child => {
     header.appendChild(child);
   });
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith('data-')) {
@@ -50,7 +50,7 @@ export function createCardHeader({ className, children = [], ...props }) {
       header[key] = value;
     }
   });
-  
+
   return header;
 }
 
@@ -65,7 +65,7 @@ export function createCardTitle({ className, text, ...props }) {
   const title = document.createElement('h3');
   title.className = cn('text-lg font-semibold leading-none tracking-tight', className);
   title.textContent = text;
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith('data-')) {
@@ -74,7 +74,7 @@ export function createCardTitle({ className, text, ...props }) {
       title[key] = value;
     }
   });
-  
+
   return title;
 }
 
@@ -89,7 +89,7 @@ export function createCardDescription({ className, text, ...props }) {
   const description = document.createElement('p');
   description.className = cn('text-sm text-muted-foreground', className);
   description.textContent = text;
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith('data-')) {
@@ -98,7 +98,7 @@ export function createCardDescription({ className, text, ...props }) {
       description[key] = value;
     }
   });
-  
+
   return description;
 }
 
@@ -112,11 +112,11 @@ export function createCardDescription({ className, text, ...props }) {
 export function createCardContent({ className, children = [], ...props }) {
   const content = document.createElement('div');
   content.className = cn('p-6 pt-0', className);
-  
+
   children.forEach(child => {
     content.appendChild(child);
   });
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith('data-')) {
@@ -125,7 +125,7 @@ export function createCardContent({ className, children = [], ...props }) {
       content[key] = value;
     }
   });
-  
+
   return content;
 }
 
@@ -139,11 +139,11 @@ export function createCardContent({ className, children = [], ...props }) {
 export function createCardFooter({ className, children = [], ...props }) {
   const footer = document.createElement('div');
   footer.className = cn('flex items-center p-6 pt-0', className);
-  
+
   children.forEach(child => {
     footer.appendChild(child);
   });
-  
+
   // Apply additional properties
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith('data-')) {
@@ -152,6 +152,6 @@ export function createCardFooter({ className, children = [], ...props }) {
       footer[key] = value;
     }
   });
-  
+
   return footer;
-} 
+}

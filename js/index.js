@@ -15,14 +15,4 @@ import * as monster from './monster.js';
 import * as utils from './utils.js';
 import * as constants from './constants.js';
 
-export {
-  elements,
-  api,
-  handlers,
-  combat,
-  ui,
-  state,
-  monster,
-  utils,
-  constants
-}; 
+export { elements, api, handlers, combat, ui, state, monster, utils, constants };
