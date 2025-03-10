@@ -58,7 +58,7 @@ export function processTurn() {
   // Make sure the turn info element is visible
   elements.turnInfoElement.classList.remove('hidden');
 
-  if (currentParticipant.type === 'pc') {
+  if (currentParticipant.type === 'player') {
     // PC turn - just display info
     elements.turnInfoElement.innerHTML = `<strong>${currentParticipant.name}'s turn</strong>`;
 
@@ -139,7 +139,7 @@ function processMonsterAction(monster, selectedAction) {
   const participants = getParticipants();
 
   // Get all PCs as potential targets
-  const targets = participants.filter(p => p.type === 'pc');
+  const targets = participants.filter(p => p.type === 'player');
 
   if (targets.length === 0) {
     elements.turnInfoElement.innerHTML = `<strong>${monster.name}'s turn</strong><br>No targets available.`;

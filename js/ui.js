@@ -147,12 +147,6 @@ export function updateInitiativeList() {
         startContainer.appendChild(acContainer);
 
         item.appendChild(startContainer);
-
-        // Menu icon on the right
-        const menuIcon = document.createElement('div');
-        menuIcon.className = 'menu-icon';
-        menuIcon.innerHTML = `<img src="icons/menu-icon.svg" alt="Menu" />`;
-        item.appendChild(menuIcon);
       } else {
         // Monster implementation - use the same layout as players
         const startContainer = document.createElement('div');
@@ -204,8 +198,13 @@ export function updateInitiativeList() {
         acContainer.appendChild(acValue);
         startContainer.appendChild(acContainer);
 
+        // Add the start container to the item
         item.appendChild(startContainer);
 
+        // Create a wrapper div for monster-specific content
+        const monsterContentWrapper = document.createElement('div');
+        monsterContentWrapper.className = 'monster-content-wrapper';
+        
         // For monsters, add HP controls
         if (participant.type === 'monster') {
           const monsterControls = document.createElement('div');
@@ -237,44 +236,31 @@ export function updateInitiativeList() {
 
           hpBarContainer.appendChild(hpFill);
 
+          hpContainer.appendChild(hpText);
+          hpContainer.appendChild(hpBarContainer);
+
           const hpControls = document.createElement('div');
           hpControls.className = 'hp-controls';
 
           const damageBtn = document.createElement('button');
-          damageBtn.className = 'btn btn-small damage-btn';
+          damageBtn.className = 'damage-btn';
           damageBtn.textContent = '-';
           damageBtn.dataset.action = 'damage';
 
           const healBtn = document.createElement('button');
-          healBtn.className = 'btn btn-small heal-btn';
+          healBtn.className = 'heal-btn';
           healBtn.textContent = '+';
           healBtn.dataset.action = 'heal';
 
           hpControls.appendChild(damageBtn);
           hpControls.appendChild(healBtn);
 
-          hpContainer.appendChild(hpText);
-          hpContainer.appendChild(hpBarContainer);
-
           monsterControls.appendChild(hpContainer);
           monsterControls.appendChild(hpControls);
 
-          item.appendChild(monsterControls);
+          monsterContentWrapper.appendChild(monsterControls);
+          item.appendChild(monsterContentWrapper);
         }
-
-        // Menu icon on the right
-        const menuIcon = document.createElement('div');
-        menuIcon.className = 'menu-icon';
-        menuIcon.innerHTML = `<img src="icons/menu-icon.svg" alt="Menu" />`;
-        item.appendChild(menuIcon);
-
-        // Add remove button
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'remove-btn';
-        removeBtn.textContent = '×';
-        removeBtn.dataset.action = 'remove';
-
-        item.appendChild(removeBtn);
       }
 
       elements.initiativeListElement.appendChild(item);
@@ -375,7 +361,6 @@ function updateExistingInitiativeItems(participants, currentTurnIndex, combatSta
       // Update defeated state
       if (participant.defeated) {
         item.classList.add('defeated');
-        item.classList.add('opacity-60');
       } else {
         item.classList.remove('defeated');
         item.classList.remove('opacity-60');

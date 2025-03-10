@@ -13,6 +13,7 @@ import { updateInitiativeList } from './ui.js';
 import { calculateHpFromHitDice, rollDice } from './utils.js';
 import { applyDamageToMonster, healMonster, displayMonsterStatBlock } from './monster.js';
 import { performMonsterAction } from './combat.js';
+import { createHealthDialog } from './components/ui/dialog.js';
 
 // Handle adding a PC to the initiative order
 export function handleAddPC(event) {
@@ -322,57 +323,23 @@ export function handleInitiativeListClick(event) {
   // Handle different actions
   switch (action) {
     case 'damage':
-      // Use a more user-friendly prompt with validation
-      const damagePrompt = prompt('Enter damage amount:', '0');
-
-      // Handle cancel button
-      if (damagePrompt === null) return;
-
-      const damageAmount = parseInt(damagePrompt);
-      // console.log('Damage amount entered:', damageAmount);
-
-      if (!isNaN(damageAmount) && damageAmount > 0) {
-        // console.log('Calling applyDamageToMonster with:', participantId, damageAmount);
-        applyDamageToMonster(participantId, damageAmount);
-      } else {
-        alert('Please enter a valid damage amount (a positive number).');
-        // console.warn('Invalid damage amount:', damageAmount);
-      }
+      createHealthDialog({
+        title: 'Apply Damage',
+        type: 'damage',
+        onConfirm: (amount) => {
+          applyDamageToMonster(participantId, amount);
+        }
+      });
       break;
 
     case 'heal':
-      // Use a more user-friendly prompt with validation
-      const healPrompt = prompt('Enter healing amount:', '0');
-
-      // Handle cancel button
-      if (healPrompt === null) return;
-
-      const healAmount = parseInt(healPrompt);
-      // console.log('Heal amount entered:', healAmount);
-
-      if (!isNaN(healAmount) && healAmount > 0) {
-        // console.log('Calling healMonster with:', participantId, healAmount);
-        healMonster(participantId, healAmount);
-      } else {
-        alert('Please enter a valid healing amount (a positive number).');
-        // console.warn('Invalid heal amount:', healAmount);
-      }
-      break;
-
-    case 'remove':
-      if (confirm('Are you sure you want to remove this participant?')) {
-        removeParticipant(participantId);
-        updateInitiativeList();
-      }
-      break;
-
-    case 'stats':
-      const participants = getParticipants();
-      const monster = participants.find(p => p.id === participantId && p.type === 'monster');
-
-      if (monster) {
-        displayMonsterStatBlock(monster);
-      }
+      createHealthDialog({
+        title: 'Apply Healing',
+        type: 'heal',
+        onConfirm: (amount) => {
+          healMonster(participantId, amount);
+        }
+      });
       break;
 
     default:
